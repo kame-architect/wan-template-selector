@@ -412,9 +412,9 @@
     E: { name: 'テンプレート E（基本形）', struct: '木造OK', structType: 'wood', width: '間口 8.7m〜', area: '約70㎡', units: '2戸', vol: '#09 基本形で登場', note: '最も汎用性の高い基本テンプレート。まずはここから検討を始めましょう。' },
     F: { name: 'テンプレート F', struct: 'RC/S造', structType: 'rc', width: '間口 11m〜', area: '約95㎡', units: '3戸', vol: '#09 基本形で登場', note: '広めの間口を活かしたRC/S造3戸プラン。各住戸の採光・通風を確保しやすい配置です。' },
     G: { name: 'テンプレート G', struct: '木造OK', structType: 'wood', width: '間口 11.55m〜', area: '約110㎡', units: '3戸', vol: '#09 基本形で登場', note: '間口が広い敷地で木造3戸。建築コストを抑えながら戸数を確保できます。' },
-    H: { name: 'テンプレート H', struct: '木造OK', structType: 'wood', width: '幅 8.6m〜（角地）', area: '〜65㎡', units: '2戸', vol: '#09 基本形で登場', note: 'コンパクトな角地でも成立する2戸プラン。2面接道のメリットを活かせます。' },
-    I: { name: 'テンプレート I', struct: '木造OK', structType: 'wood', width: '幅 9.85m〜（角地・正方形寄り）', area: '〜95㎡', units: '3戸', vol: '#09 基本形で登場', note: '正方形に近い角地向け。木造で3戸を効率的に配置します。' },
-    J: { name: 'テンプレート J', struct: 'RC/S造', structType: 'rc', width: '幅 11m〜（角地・横長）', area: '〜95㎡', units: '3戸', vol: '#09 基本形で登場', note: '横長の角地向けRC/S造プラン。道路面を広く使える配置です。' },
+    H: { name: 'テンプレート H', struct: '木造OK', structType: 'wood', width: '幅 8.6m〜（角地）', area: '65㎡〜', units: '2戸', vol: '#09 基本形で登場', note: 'コンパクトな角地でも成立する2戸プラン。2面接道のメリットを活かせます。' },
+    I: { name: 'テンプレート I', struct: '木造OK', structType: 'wood', width: '幅 9.85m〜（角地・正方形寄り）', area: '95㎡〜', units: '3戸', vol: '#09 基本形で登場', note: '正方形に近い角地向け。木造で3戸を効率的に配置します。' },
+    J: { name: 'テンプレート J', struct: 'RC/S造', structType: 'rc', width: '幅 11m〜（角地・横長）', area: '95㎡〜', units: '3戸', vol: '#09 基本形で登場', note: '横長の角地向けRC/S造プラン。道路面を広く使える配置です。' },
     K: { name: 'テンプレート K', struct: '木造OK', structType: 'wood', width: '幅 13.15m〜（角地・大型）', area: '125㎡〜', units: '4戸', vol: '#09 基本形で登場', note: '大型角地のポテンシャルを最大限に活かす4戸プラン。木造でコストも抑えられます。' },
   };
 
@@ -468,8 +468,8 @@
     corner_size: {
       id: 'corner_size', label: 'STEP 2', question: '敷地のサイズは？',
       choices: [
-        { text: 'コンパクト（〜65㎡）', sub: '小さめの角地', icon: '🏠', iconClass: 'teal', result: 'H' },
-        { text: '中型（〜95㎡）', sub: '中くらいの角地', icon: '🏘️', iconClass: 'teal', next: 'corner_mid_shape' },
+        { text: 'コンパクト（65㎡〜）', sub: '小さめの角地', icon: '🏠', iconClass: 'teal', result: 'H' },
+        { text: '中型（95㎡〜）', sub: '中くらいの角地', icon: '🏘️', iconClass: 'teal', next: 'corner_mid_shape' },
         { text: '大型（125㎡〜）', sub: '広い角地', icon: '🏢', iconClass: 'teal', result: 'K' },
       ]
     },
