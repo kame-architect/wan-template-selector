@@ -405,17 +405,17 @@
 (function() {
   // ---- Data ----
   const templates = {
-    A: { name: 'テンプレート A', struct: '木造OK', structType: 'wood', width: '間口 6.5m〜', area: '約80㎡', units: '2戸', vol: '#09 基本形で登場', note: '間口が狭くても2戸なら成立しやすい基本パターン。木造で建築コストを抑えられます。' },
-    B: { name: 'テンプレート B', struct: 'RC/S造', structType: 'rc', width: '間口 6.7m〜', area: '約95㎡', units: '3戸', vol: '#09 基本形で登場', note: 'RC/S造で3戸を確保。間口が狭い敷地でも容積率を活かしやすい構成です。' },
-    C: { name: 'テンプレート C', struct: '木造OK', structType: 'wood', width: '間口 8.2m〜', area: '約110㎡', units: '3戸', vol: '#09 基本形で登場', note: '奥行きが短めでも3戸取れる木造プラン。コストバランスに優れます。' },
-    D: { name: 'テンプレート D', struct: 'RC/S造', structType: 'rc', width: '間口 8.2m〜', area: '約140㎡', units: '4戸', vol: '#09 基本形で登場', note: '奥行き16m以上あれば4戸のRC/S造。収益性を最大化したい方向けです。' },
-    E: { name: 'テンプレート E（基本形）', struct: '木造OK', structType: 'wood', width: '間口 8.7m〜', area: '約70㎡', units: '2戸', vol: '#09 基本形で登場', note: '最も汎用性の高い基本テンプレート。まずはここから検討を始めましょう。' },
-    F: { name: 'テンプレート F', struct: 'RC/S造', structType: 'rc', width: '間口 11m〜', area: '約95㎡', units: '3戸', vol: '#09 基本形で登場', note: '広めの間口を活かしたRC/S造3戸プラン。各住戸の採光・通風を確保しやすい配置です。' },
-    G: { name: 'テンプレート G', struct: '木造OK', structType: 'wood', width: '間口 11.55m〜', area: '約110㎡', units: '3戸', vol: '#09 基本形で登場', note: '間口が広い敷地で木造3戸。建築コストを抑えながら戸数を確保できます。' },
-    H: { name: 'テンプレート H', struct: '木造OK', structType: 'wood', width: '幅 8.6m〜（角地）', area: '65㎡〜', units: '2戸', vol: '#09 基本形で登場', note: 'コンパクトな角地でも成立する2戸プラン。2面接道のメリットを活かせます。' },
-    I: { name: 'テンプレート I', struct: '木造OK', structType: 'wood', width: '幅 9.85m〜（角地・正方形寄り）', area: '95㎡〜', units: '3戸', vol: '#09 基本形で登場', note: '正方形に近い角地向け。木造で3戸を効率的に配置します。' },
-    J: { name: 'テンプレート J', struct: 'RC/S造', structType: 'rc', width: '幅 11m〜（角地・横長）', area: '95㎡〜', units: '3戸', vol: '#09 基本形で登場', note: '横長の角地向けRC/S造プラン。道路面を広く使える配置です。' },
-    K: { name: 'テンプレート K', struct: '木造OK', structType: 'wood', width: '幅 13.15m〜（角地・大型）', area: '125㎡〜', units: '4戸', vol: '#09 基本形で登場', note: '大型角地のポテンシャルを最大限に活かす4戸プラン。木造でコストも抑えられます。' },
+    A: { name: 'テンプレート A', struct: '木造OK', structType: 'wood', width: '間口 6.5m〜', area: '約80㎡', units: '2戸', vol: '約20㎡の住戸を配置した最小値', note: '間口が小さい木造用地に。階段を中央に配置し共用部を最小化。狭小の木造用地にぜひ！' },
+    B: { name: 'テンプレート B', struct: 'RC/S造', structType: 'rc', width: '間口 6.7m〜', area: '約95㎡', units: '3戸', vol: '約20㎡の住戸を配置した最小値', note: 'テンプレートCと同じ住戸配置。1階の通路上に住戸を配置し必要間口を最小限に。Aとの差はわずか0.2m。高さ制限で判断を。' },
+    C: { name: 'テンプレート C', struct: '木造OK', structType: 'wood', width: '間口 8.2m〜', area: '約110㎡', units: '3戸', vol: '約20㎡の住戸を配置した最小値', note: '木三共の代表的な型。奥行きを活かして3戸/フロア。200㎡超はバルコニー/開放階段の条件適合が必要。' },
+    D: { name: 'テンプレート D', struct: 'RC/S造', structType: 'rc', width: '間口 8.2m〜', area: '約140㎡', units: '4戸', vol: '約20㎡の住戸を配置した最小値', note: '1面道路A〜G中 最大敷地面積。中央に階段室を配置し住戸占有面積を最大化。奥の住戸の窓先空地+避難経路に注意。' },
+    E: { name: 'テンプレート E（基本形）', struct: '木造OK', structType: 'wood', width: '間口 8.7m〜', area: '約70㎡', units: '2戸', vol: '約20㎡の住戸を配置した最小値', note: '1面道路テンプレートの基本形。全住戸の窓が道路に面する最もシンプルな配置。まずはここから！' },
+    F: { name: 'テンプレート F', struct: 'RC/S造', structType: 'rc', width: '間口 11m〜', area: '約95㎡', units: '3戸', vol: '約20㎡の住戸を配置した最小値', note: '1階に通路を通すRC/S造。ワンルーム条例にハマりやすい（4F=11戸/5F=14戸で対象外に）。開口幅と高さ制限で判断。' },
+    G: { name: 'テンプレート G', struct: '木造OK', structType: 'wood', width: '間口 11.55m〜', area: '約110㎡', units: '3戸', vol: '約20㎡の住戸を配置した最小値', note: 'A〜G中 最大間口。全室道路面に配置でき、木三共200㎡超でもバルコニー不要にできる型。' },
+    H: { name: 'テンプレート H', struct: '木造OK', structType: 'wood', width: '幅 8.6m〜（角地）', area: '65㎡〜', units: '2戸', vol: '約20㎡の住戸を配置した最小値', note: '角地で2戸の最小計画。Eとほぼ同サイズ（0.1m差）。角地緩和で指定建蔽率60%でも80%まで引き上げ可能。' },
+    I: { name: 'テンプレート I', struct: '木造OK', structType: 'wood', width: '幅 9.85m〜（角地）', area: '95㎡〜', units: '3戸', vol: '約20㎡の住戸を配置した最小値', note: '2面道路で3戸を取る最小敷地面積。全室の窓＋建物出入口を道路に面して配置。住戸短辺は2.75m確保。' },
+    J: { name: 'テンプレート J', struct: 'RC/S造', structType: 'rc', width: '幅 11m〜（角地・横長）', area: '95㎡〜', units: '3戸', vol: '約20㎡の住戸を配置した最小値', note: 'Iでも計画可能な敷地。3戸を並列に並べたい場合にご利用ください。' },
+    K: { name: 'テンプレート K', struct: '木造OK', structType: 'wood', width: '幅 13.15m〜（角地・大型）', area: '125㎡〜', units: '4戸', vol: '約20㎡の住戸を配置した最小値', note: '4戸を計画可能な角地の最小敷地。角地緩和＋2面接道を最大限に活かす。全11パターン中最大間口。' },
   };
 
   // ---- Step definitions ----
@@ -445,24 +445,28 @@
       ]
     },
     narrow_2_struct: {
-      id: 'narrow_2_struct', label: 'STEP 4', question: '間口が小さめで奥行きがある場合、構造は？',
+      id: 'narrow_2_struct', label: 'STEP 4', question: '高さ制限から構造を判断',
+      note: 'A/Bの必要間口はわずか0.2m差。3階建てなら木造A、上に積みたいならRC/S造のB',
       choices: [
-        { text: '木造（1階にも住戸を入れる）', sub: '2戸/フロア・間口6.5m〜', icon: '🪵', iconClass: 'green', result: 'A' },
-        { text: 'RC/S造（1階に通路を通す）', sub: '3戸/フロア・間口6.7m〜', icon: '🏗️', iconClass: 'orange', result: 'B' },
+        { text: '木造（3階建て）', sub: '2戸/フロア・間口6.5m〜・コストを抑えたい', icon: '🪵', iconClass: 'green', result: 'A' },
+        { text: 'RC/S造（4階以上を狙う）', sub: '3戸/フロア・間口6.7m〜・容積率/高さに余裕あり', icon: '🏗️', iconClass: 'orange', result: 'B' },
       ]
     },
     narrow_3_depth: {
-      id: 'narrow_3_depth', label: 'STEP 4', question: '敷地の奥行きは？',
+      id: 'narrow_3_depth', label: 'STEP 4', question: '敷地面積（奥行き）は？',
+      note: 'C/Dは間口が同じ8.2m。敷地面積（≒奥行き）の差が戸数の差になります',
       choices: [
-        { text: '〜13m', sub: '奥行き短め', icon: '↕️', iconClass: 'teal', result: 'C' },
-        { text: '16m 以上', sub: '奥行きに余裕あり', icon: '↕️', iconClass: 'teal', result: 'D' },
+        { text: '約110㎡（奥行き〜13m）', sub: '木造OK・3戸/フロア', icon: '↕️', iconClass: 'green', result: 'C' },
+        { text: '約140㎡（奥行き16m以上）', sub: 'RC/S造限定・4戸/フロア', icon: '↕️', iconClass: 'orange', result: 'D' },
       ]
     },
     wide_struct: {
-      id: 'wide_struct', label: 'STEP 3', question: '3戸取れそう？構造は？',
+      id: 'wide_struct', label: 'STEP 3', question: '間口と高さ制限から判断',
+      note: '間口11.55m以上でG、11m以上でF。4F/5F建てが狙えるならFの方が住戸占有面積を確保しやすい',
       choices: [
-        { text: '木造で 3戸', sub: 'コストを抑えて3戸確保（間口11.55m〜）', icon: '🪵', iconClass: 'green', result: 'G' },
-        { text: 'RC/S造 で 3戸', sub: '容積率を活かして3戸（間口11m〜）', icon: '🏗️', iconClass: 'orange', result: 'F' },
+        { text: 'テンプレート E で検討', sub: '2戸/フロア・間口8.7m〜の基本形', icon: '⭐', iconClass: 'green', result: 'E' },
+        { text: '木造で 3戸（G）', sub: '間口11.55m〜・バルコニー不要にできる型', icon: '🪵', iconClass: 'green', result: 'G' },
+        { text: 'RC/S造 で 3戸（F）', sub: '間口11m〜・ワンルーム条例にハマりやすい', icon: '🏗️', iconClass: 'orange', result: 'F' },
       ]
     },
     corner_size: {
@@ -474,10 +478,11 @@
       ]
     },
     corner_mid_shape: {
-      id: 'corner_mid_shape', label: 'STEP 3', question: '敷地の形は？',
+      id: 'corner_mid_shape', label: 'STEP 3', question: '住戸の並べ方は？',
+      note: 'まずIで検討してみてください。3戸を並列に並べたい場合はJへ',
       choices: [
-        { text: '正方形寄り / 木造', sub: '整形地で木造3戸', icon: '⬜', iconClass: 'green', result: 'I' },
-        { text: '横長 / RC・S造', sub: '横長敷地でRC/S造3戸', icon: '▬', iconClass: 'orange', result: 'J' },
+        { text: 'まずI（木造OK）', sub: '全室の窓＋出入口を道路に面して配置', icon: '⬜', iconClass: 'green', result: 'I' },
+        { text: '3戸並列にしたい（J・RC/S造）', sub: '周辺環境を考慮し並列配置する場合', icon: '▬', iconClass: 'orange', result: 'J' },
       ]
     },
   };
